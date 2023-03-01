@@ -1,0 +1,6 @@
+REPO_URL,REPO_BRANCH
+git@github.com:dmaharana/python-multithreading.git,main
+git@github.com:dmaharana/jenkins-test.git,master
+git@github.com:dmaharana/dumpMsg.git,main
+git@github.com:dmaharana/go-sqlite.git,main
+#git@github.com:dmaharana/mvn-testng-allure.git,main
