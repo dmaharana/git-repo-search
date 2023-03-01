@@ -138,7 +138,7 @@ def get_repo_folders(dirpath):
 
 def write_to_csv(output_list, out_filename):
 
-    with open(out_filename, 'w', newline=None) as fh:
+    with open(out_filename, 'w', newline='') as fh:
         csvw = csv.writer(fh)
         csvw.writerows(output_list)
         print('Output file created: {}'.format(out_filename))
