@@ -212,23 +212,18 @@ def main():
                 repo_branch = repo_branch_dict[repo_url]
                 search_result = row[cmd_out_header.index('STDOUT')]
 
-                search_txt_log_dict[k].append(search_result)
+                search_txt_log_dict[k].append(f"REPO={repo_url};BRANCH={repo_branch}\n{search_result}")
 
                 search_results_list = search_result.split('\n')
                 for sr in search_results_list:
-                    # print(f"sr={sr}")
                     if 'HEAD' in sr:
-                        mfiles_list.append(sr.split(':')[-1])
-                # print(f"result={search_results_list}")
+                        f = sr.split(':')[-1]
+                        e = [k, repo_url, repo_branch, f]
+                        s_results_list.append(e)
                 
-                for f in mfiles_list:
-                    e = [k, repo_url, repo_branch, f]
-                    s_results_list.append(e)
             else:
                 print(f"Command error: {row[cmd_out_header.index('CMD')]}")
             
-    # print(f"s_res={s_results_list}")
-
     if len(s_results_list) > 0:
         s_results_list.insert(0, search_result_csv_header)
         write_to_csv(s_results_list, search_result_csv_file)
